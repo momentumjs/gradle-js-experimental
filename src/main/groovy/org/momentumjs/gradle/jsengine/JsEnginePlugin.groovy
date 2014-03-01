@@ -15,11 +15,47 @@
  */
 package org.momentumjs.gradle.jsengine
 
+import org.gradle.api.Incubating
 import org.gradle.api.Plugin
 import org.gradle.api.Project
+import org.gradle.internal.reflect.Instantiator
+import org.gradle.model.ModelFinalizer
+import org.gradle.model.ModelRules
+import org.momentumjs.gradle.jsengine.internal.DefaultJsEngineRegistry
+import org.momentumjs.gradle.jsengine.internal.JsEngineRegistryInternal
 
+import javax.inject.Inject
+
+@Incubating
 class JsEnginePlugin implements Plugin<Project> {
 
+    private final Instantiator instantiator
+    private final ModelRules modelRules
+
+    @Inject
+    JsEnginePlugin(Instantiator instantiator, ModelRules modelRules) {
+        this.instantiator = instantiator
+        this.modelRules = modelRules
+    }
+
     void apply(Project project) {
+        modelRules.register("jsEngines", JsEngineRegistryInternal, new DefaultJsEngineRegistryFactory<>())
+        modelRules.rule(new AddDefaultJsEnginesIfRequired())
+    }
+
+    private class DefaultJsEngineRegistryFactory implements org.gradle.internal.Factory<JsEngineRegistryInternal> {
+
+        public JsEngineRegistryInternal create() {
+            return instantiator.newInstance(DefaultJsEngineRegistry, instantiator)
+        }
+    }
+
+    @SuppressWarnings("UnusedDeclaration")
+    private static class AddDefaultJsEnginesIfRequired extends ModelFinalizer {
+        void defaultJsEngines(JsEngineRegistryInternal registry) {
+            if (registry.isEmpty()) {
+                registry.addDefaultJsEngines();
+            }
+        }
     }
 }
