@@ -2,21 +2,13 @@ package org.momentumjs.gradle.jsengine
 
 import static org.junit.Assert.*
 
-import org.gradle.api.Project
 import org.gradle.api.internal.project.DefaultProject
 import org.gradle.testfixtures.ProjectBuilder
 import org.junit.Test
 
-/**
- * Created with IntelliJ IDEA.
- * User: rob
- * Date: 01/03/14
- * Time: 15:23
- * To change this template use File | Settings | File Templates.
- */
 class JsEnginePluginTest {
 
-    private JsEngineRegistry jsEngineRegistry(DefaultProject project) {
+    private static JsEngineRegistry jsEngineRegistry(DefaultProject project) {
         return project.modelRegistry.get("jsEngines", JsEngineRegistry)
     }
 

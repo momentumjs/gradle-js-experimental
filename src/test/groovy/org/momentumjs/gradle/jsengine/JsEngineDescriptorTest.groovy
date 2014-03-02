@@ -4,13 +4,6 @@ import static org.junit.Assert.*
 
 import org.junit.Test
 
-/**
- * Created with IntelliJ IDEA.
- * User: rob
- * Date: 02/03/14
- * Time: 01:30
- * To change this template use File | Settings | File Templates.
- */
 class JsEngineDescriptorTest {
 
     @Test(expected = IllegalArgumentException)
@@ -24,9 +17,8 @@ class JsEngineDescriptorTest {
     }
 
     @Test
-    public void ecmaCanBeNull() {
-        new JsEngineDescriptor("1", "2");
-        new JsEngineDescriptor("1", "2", null);
+    public void ecmaCanBeNullOrMissingFromConstructor() {
+        assertEquals(new JsEngineDescriptor("1", "2"), new JsEngineDescriptor("1", "2", null));
     }
 
     @Test

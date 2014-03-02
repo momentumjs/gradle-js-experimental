@@ -5,18 +5,14 @@ import static org.junit.Assert.*
 import org.junit.Test
 import org.momentumjs.gradle.jsengine.internal.DefaultJsEngineRegistry
 
-/**
- * Created with IntelliJ IDEA.
- * User: rob
- * Date: 02/03/14
- * Time: 01:06
- * To change this template use File | Settings | File Templates.
- */
 public class DefaultJsEngineRegistryTest {
+
+    // TODO mock or inject instantiator?
+    private DefaultJsEngineRegistry registry = new DefaultJsEngineRegistry(null)
 
     @Test
     public void testBestWithSingleName() {
-        DefaultJsEngineRegistry registry = new DefaultJsEngineRegistry()
+
         registry.add(new DummyJsEngine("alpha", "1.2", "5"))
         registry.add(new DummyJsEngine("alpha", "1.5", "5"))
         registry.add(new DummyJsEngine("alpha", "1.3", "5"))
@@ -38,7 +34,6 @@ public class DefaultJsEngineRegistryTest {
 
     @Test
     public void testWithDifferentEcmaScriptVersions() {
-        DefaultJsEngineRegistry registry = new DefaultJsEngineRegistry()
         // Okay, it'd be weird to comply with version 5.1 only in 1.3, but hey:
         registry.add(new DummyJsEngine("strange", "1.2", "3"))
         registry.add(new DummyJsEngine("strange", "1.5", "5"))
@@ -61,7 +56,6 @@ public class DefaultJsEngineRegistryTest {
 
     @Test
     public void testWithNullEcmaScriptVersion() {
-        DefaultJsEngineRegistry registry = new DefaultJsEngineRegistry()
         registry.add(new DummyJsEngine("strange", "1.2", null))
         registry.add(new DummyJsEngine("strange", "1.5", "5"))
         registry.add(new DummyJsEngine("strange", "1.3", "5.1"))
@@ -81,8 +75,8 @@ public class DefaultJsEngineRegistryTest {
         assertEquals("5.1", best.getDescriptor().getEcmaScriptVersion());
     }
 
+    @Test
     public void testFilter() {
-        DefaultJsEngineRegistry registry = new DefaultJsEngineRegistry()
         registry.add(new DummyJsEngine("alpha", "2", "5"))
         registry.add(new DummyJsEngine("beta",  "1", null))
         registry.add(new DummyJsEngine("alpha", "3", "5.1"))
