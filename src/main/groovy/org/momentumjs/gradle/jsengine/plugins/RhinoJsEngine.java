@@ -13,11 +13,13 @@ import org.momentumjs.gradle.jsengine.JsEngineDescriptor;
  */
 public class RhinoJsEngine extends AbstractJsEngine {
 
+    public static final String RHINO_ECMA_VERSION = "5";
+
     public RhinoJsEngine(JsEngineDescriptor descriptor) {
         super(new JsEngineDescriptor(
                 RhinoExtension.NAME,
                 RhinoExtension.DEFAULT_RHINO_DEPENDENCY_VERSION,
-                "5"
+                RHINO_ECMA_VERSION
         ));
     }
 
