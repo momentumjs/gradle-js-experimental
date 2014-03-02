@@ -22,7 +22,7 @@ class JsEnginePluginTest {
 
     @Test
     public void jsEnginePluginAddsExtensionToProject() {
-        DefaultProject project = ProjectBuilder.builder().build()
+        DefaultProject project = (DefaultProject)ProjectBuilder.builder().build()
         project.apply plugin: 'js-engine'
 
         // no javascript engines are registered by the base plugin
@@ -33,7 +33,7 @@ class JsEnginePluginTest {
 
     @Test
     public void rhinoEnginePlugin() {
-        DefaultProject project = ProjectBuilder.builder().build()
+        DefaultProject project = (DefaultProject)ProjectBuilder.builder().build()
         project.apply plugin: 'rhino-js-engine'
 
         // rhino is the only available engine with this plugin

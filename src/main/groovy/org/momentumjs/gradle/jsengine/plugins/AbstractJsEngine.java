@@ -1,17 +1,13 @@
 package org.momentumjs.gradle.jsengine.plugins;
 
+import org.gradle.api.Incubating;
 import org.momentumjs.gradle.jsengine.JsEngine;
 import org.momentumjs.gradle.jsengine.JsEngineDescriptor;
 
-import java.util.Comparator;
-
 /**
- * Created with IntelliJ IDEA.
- * User: rob
- * Date: 01/03/14
- * Time: 23:35
- * To change this template use File | Settings | File Templates.
+ * Base class available for JsEngine implementations
  */
+@Incubating
 public abstract class AbstractJsEngine implements JsEngine {
 
     private final JsEngineDescriptor descriptor;

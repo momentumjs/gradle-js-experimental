@@ -9,9 +9,9 @@ import org.momentumjs.gradle.jsengine.plugins.AbstractJsEngine;
  * Time: 01:03
  * To change this template use File | Settings | File Templates.
  */
-public class TestJsEngine extends AbstractJsEngine {
+public class DummyJsEngine extends AbstractJsEngine {
 
-    public TestJsEngine(String name, String version, String ecmaVersion) {
+    public DummyJsEngine(String name, String version, String ecmaVersion) {
         super(new JsEngineDescriptor(name, version, ecmaVersion));
     }
 }

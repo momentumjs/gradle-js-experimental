@@ -1,9 +1,10 @@
 package org.momentumjs.gradle.jsengine.internal;
 
 import org.gradle.api.Action;
+import org.gradle.api.Incubating;
 import org.gradle.api.internal.DefaultPolymorphicDomainObjectContainer;
 import org.gradle.internal.reflect.Instantiator;
-import org.momentumjs.gradle.jsengine.EngineCompatibility;
+import org.momentumjs.gradle.jsengine.JsEngineFilter;
 import org.momentumjs.gradle.jsengine.JsEngine;
 
 import java.util.ArrayList;
@@ -12,12 +13,11 @@ import java.util.LinkedList;
 import java.util.List;
 
 /**
- * Created with IntelliJ IDEA.
- * User: rob
- * Date: 01/03/14
- * Time: 17:37
- * To change this template use File | Settings | File Templates.
+ * The default JsEngineRegistry implementation. Allows for default JsEngine registry also,
+ * which are sorted such that the best engine matching a set of requirements (encapsulated by
+ * JsEngineFilter) can be found.
  */
+@Incubating
 public class DefaultJsEngineRegistry  extends DefaultPolymorphicDomainObjectContainer<JsEngine> implements JsEngineRegistryInternal {
     private final List<JsEngine> defaultEngines = new ArrayList<JsEngine>();
     private final LinkedList<JsEngine> searchOrder = new LinkedList<JsEngine>();
@@ -53,9 +53,9 @@ public class DefaultJsEngineRegistry  extends DefaultPolymorphicDomainObjectCont
         return searchOrder.getFirst();
     }
 
-    public JsEngine findBestEngine(EngineCompatibility engineCompatibility) {
+    public JsEngine findBestEngine(JsEngineFilter jsEngineFilter) {
         for (JsEngine engine : searchOrder) {
-            if (engineCompatibility.compatibleWith(engine.getDescriptor())) {
+            if (jsEngineFilter.compatibleWith(engine.getDescriptor())) {
                 return engine;
             }
         }

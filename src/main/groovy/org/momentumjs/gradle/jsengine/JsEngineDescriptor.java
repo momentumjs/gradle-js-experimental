@@ -1,5 +1,13 @@
 package org.momentumjs.gradle.jsengine;
 
+import org.gradle.api.Incubating;
+
+/**
+ *
+ * Captures the javascript engine name, version number and ecma compliance
+ *
+ */
+@Incubating
 public final class JsEngineDescriptor implements Comparable<JsEngineDescriptor> {
 
     public final String engineName;
@@ -45,8 +53,8 @@ public final class JsEngineDescriptor implements Comparable<JsEngineDescriptor> 
         }
 
         int compareStandards = compareVersionNumbers(
-                ecmaScriptVersion == null ? "0" : ecmaScriptVersion,
-                other.ecmaScriptVersion == null ? "0" : other.ecmaScriptVersion);
+                ecmaScriptVersionOrZero(),
+                other.ecmaScriptVersionOrZero());
         if (compareStandards != 0) {
             return compareStandards;
         }
@@ -66,31 +74,29 @@ public final class JsEngineDescriptor implements Comparable<JsEngineDescriptor> 
 
         JsEngineDescriptor that = (JsEngineDescriptor) o;
 
-        if (ecmaScriptVersion != null ? !ecmaScriptVersion.equals(that.ecmaScriptVersion) : that.ecmaScriptVersion != null)
-            return false;
-        if (!engineName.equals(that.engineName)) return false;
-        if (!engineVersion.equals(that.engineVersion)) return false;
-
-        return true;
+        return  ecmaScriptVersionOrZero().equals(that.ecmaScriptVersionOrZero()) &&
+                engineName.equals(that.engineName) &&
+                engineVersion.equals(that.engineVersion);
     }
 
     @Override
     public int hashCode() {
         int result = engineName.hashCode();
         result = 31 * result + engineVersion.hashCode();
-        result = 31 * result + (ecmaScriptVersion != null ? ecmaScriptVersion.hashCode() : 0);
+        result = 31 * result + ecmaScriptVersionOrZero().hashCode();
         return result;
     }
 
     public static int compareVersionNumbers(String x, String y) {
-        if (x == y) {
-            return 0;
-        }
-        else if (x == null || y == null) {
+        if (x == null || y == null) {
             throw new NullPointerException("attempt to compare version number " + x + " to " + y);
         }
         // TODO this is a naive implementation. improve.
         return x.compareToIgnoreCase(y);
+    }
+
+    private String ecmaScriptVersionOrZero() {
+        return ecmaScriptVersion == null ? "0" : ecmaScriptVersion;
     }
 
 }

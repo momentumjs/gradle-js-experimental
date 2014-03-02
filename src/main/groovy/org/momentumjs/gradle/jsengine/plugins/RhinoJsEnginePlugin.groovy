@@ -7,17 +7,13 @@ import org.gradle.model.ModelRule
 import org.gradle.model.ModelRules
 import org.gradle.plugins.javascript.rhino.RhinoPlugin
 import org.momentumjs.gradle.jsengine.JsEnginePlugin
-import org.momentumjs.gradle.jsengine.JsEngineRegistry
 import org.momentumjs.gradle.jsengine.internal.JsEngineRegistryInternal
 
 import javax.inject.Inject
 
 /**
- * Created with IntelliJ IDEA.
- * User: rob
- * Date: 01/03/14
- * Time: 16:30
- * To change this template use File | Settings | File Templates.
+ * Plugin to provide gradle's existing rhino javascript engine support
+ * via the js-engine-plugin
  */
 @Incubating
 class RhinoJsEnginePlugin implements Plugin<Project> {

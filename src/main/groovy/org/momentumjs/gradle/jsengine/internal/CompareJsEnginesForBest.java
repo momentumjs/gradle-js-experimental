@@ -1,16 +1,15 @@
 package org.momentumjs.gradle.jsengine.internal;
 
+import org.gradle.api.Incubating;
 import org.momentumjs.gradle.jsengine.JsEngine;
 
 import java.util.Comparator;
 
 /**
- * Created with IntelliJ IDEA.
- * User: rob
- * Date: 02/03/14
- * Time: 01:00
- * To change this template use File | Settings | File Templates.
+ * Compares engines by descriptor to sort them in reverse order, i.e. highest
+ * versions come first.
  */
+@Incubating
 public class CompareJsEnginesForBest implements Comparator<JsEngine> {
 
     @Override
