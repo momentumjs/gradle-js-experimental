@@ -1,5 +1,6 @@
 package org.momentumjs.gradle.jsengine.internal;
 
+import org.momentumjs.gradle.jsengine.EngineCompatibility;
 import org.momentumjs.gradle.jsengine.JsEngine;
 import org.momentumjs.gradle.jsengine.JsEngineRegistry;
 
@@ -14,5 +15,7 @@ public interface JsEngineRegistryInternal extends JsEngineRegistry {
 
     void addDefaultJsEngines();
     void registerDefaultJsEngine(JsEngine engine);
+
+    JsEngine findBestEngine(EngineCompatibility engineCompatibility);
 
 }

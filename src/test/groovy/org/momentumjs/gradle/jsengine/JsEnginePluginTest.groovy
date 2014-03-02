@@ -38,8 +38,9 @@ class JsEnginePluginTest {
 
         // rhino is the only available engine with this plugin
         JsEngineRegistry registry = jsEngineRegistry(project)
-        JsEngine jsEngine = registry.getByName("Rhino")
-        assertEquals("5", jsEngine.getECMAScriptVersion())
+        JsEngine jsEngine = registry.getByName("rhino-1.7R3")
+        assertEquals("rhino", jsEngine.getDescriptor().getEngineName())
+        assertEquals("5", jsEngine.getDescriptor().getEcmaScriptVersion())
         assertEquals(1, registry.size())
     }
 }

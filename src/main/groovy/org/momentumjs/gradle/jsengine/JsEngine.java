@@ -15,12 +15,6 @@ import org.gradle.internal.HasInternalProtocol;
 @HasInternalProtocol
 public interface JsEngine extends Named {
 
-    String getDisplayName();
-
-    String getEngineName();
-
-    String getEngineVersion();
-
-    String getECMAScriptVersion();
+    JsEngineDescriptor getDescriptor();
 
 }

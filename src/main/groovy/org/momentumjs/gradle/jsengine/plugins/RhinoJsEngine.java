@@ -1,6 +1,8 @@
 package org.momentumjs.gradle.jsengine.plugins;
 
+import org.gradle.plugins.javascript.rhino.RhinoExtension;
 import org.momentumjs.gradle.jsengine.JsEngine;
+import org.momentumjs.gradle.jsengine.JsEngineDescriptor;
 
 /**
  * Created with IntelliJ IDEA.
@@ -9,26 +11,14 @@ import org.momentumjs.gradle.jsengine.JsEngine;
  * Time: 17:19
  * To change this template use File | Settings | File Templates.
  */
-public class RhinoJsEngine implements JsEngine {
+public class RhinoJsEngine extends AbstractJsEngine {
 
-
-    public String getDisplayName() {
-        return getName() + " " + getEngineVersion();
+    public RhinoJsEngine(JsEngineDescriptor descriptor) {
+        super(new JsEngineDescriptor(
+                RhinoExtension.NAME,
+                RhinoExtension.DEFAULT_RHINO_DEPENDENCY_VERSION,
+                "5"
+        ));
     }
 
-    public String getEngineName() {
-        return getName();
-    }
-
-    public String getEngineVersion() {
-        return "1.7R3";
-    }
-
-    public String getECMAScriptVersion() {
-        return "5";
-    }
-
-    public String getName() {
-        return "Rhino";
-    }
 }
