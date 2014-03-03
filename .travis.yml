@@ -10,5 +10,4 @@ script:
     - gradle build
 
 after_success:
-    - gradle cobertura
-    - gradle coveralls
+    - gradle cobertura coveralls
