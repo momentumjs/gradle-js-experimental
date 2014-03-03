@@ -6,8 +6,5 @@ jdk:
 env:
     - TERM=dumb
 
-script: 
-    - gradle build
-
 after_success:
     - gradle cobertura coveralls
