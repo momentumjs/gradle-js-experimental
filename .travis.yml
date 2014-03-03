@@ -1,1 +1,14 @@
 language: groovy
+
+jdk:
+    - oraclejdk7
+
+env:
+    - TERM=dumb
+
+script: 
+    - gradle build
+
+after_success:
+    - gradle cobertura
+    - gradle coveralls

@@ -22,6 +22,29 @@ apply plugin: 'groovy'
 apply plugin: 'idea'
 apply plugin: 'maven'
 
+apply plugin: 'cobertura'
+apply plugin: 'coveralls'
+
+/* this section is for coveralls */
+repositories {
+        mavenCentral()
+}
+
+buildscript {
+    repositories {
+        mavenCentral()
+    }
+
+    dependencies {
+        classpath 'net.saliman:gradle-cobertura-plugin:2.0.0' // cobertura plugin
+        classpath 'org.kt3k.gradle.plugin:coveralls-gradle-plugin:0.2.5'
+    }
+}
+
+cobertura.coverageFormats = ['html', 'xml'] // coveralls plugin depends on xml format report
+cobertura.coverageSourceDirs = sourceSets.main.groovy.srcDirs
+/* end of coveralls configuration */
+
 sourceCompatibility = '1.6'
 targetCompatibility = '1.6'
 
