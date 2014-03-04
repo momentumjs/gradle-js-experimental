@@ -58,7 +58,7 @@ dependencies {
     compile localGroovy()
 }
 
-githubMaven {
+uploadArchives {
     repositories.mavenDeployer {
         repository(url: "file:///${System.getProperty('user.home')}/Documents/GitHub/maven-repository/")
     }
