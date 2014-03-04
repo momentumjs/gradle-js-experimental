@@ -1,9 +1,9 @@
-package org.momentumjs.gradle.jsengine.internal;
+package org.momentumjs.gradle.js.engine.internal;
 
 import org.gradle.api.Incubating;
-import org.momentumjs.gradle.jsengine.JsEngineFilter;
-import org.momentumjs.gradle.jsengine.JsEngine;
-import org.momentumjs.gradle.jsengine.JsEngineRegistry;
+import org.momentumjs.gradle.js.engine.JsEngine;
+import org.momentumjs.gradle.js.engine.JsEngineFilter;
+import org.momentumjs.gradle.js.engine.JsEngineRegistry;
 
 /**
  * Adds internal methods to the API of JsEngineRegistry

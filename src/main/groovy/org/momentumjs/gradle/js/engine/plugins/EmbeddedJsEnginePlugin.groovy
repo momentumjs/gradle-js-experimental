@@ -1,12 +1,12 @@
-package org.momentumjs.gradle.jsengine.plugins
+package org.momentumjs.gradle.js.engine.plugins
 
 import org.gradle.api.Incubating
 import org.gradle.api.Plugin
 import org.gradle.api.Project
 import org.gradle.model.ModelRule
 import org.gradle.model.ModelRules
-import org.momentumjs.gradle.jsengine.JsEnginePlugin
-import org.momentumjs.gradle.jsengine.internal.JsEngineRegistryInternal
+import org.momentumjs.gradle.js.JsBasePlugin
+import org.momentumjs.gradle.js.engine.internal.JsEngineRegistryInternal
 
 import javax.inject.Inject
 import javax.script.ScriptEngineFactory
@@ -30,7 +30,7 @@ class EmbeddedJsEnginePlugin implements Plugin<Project> {
     }
 
     void apply(Project project) {
-        project.plugins.apply(JsEnginePlugin)
+        project.plugins.apply(JsBasePlugin)
 
         modelRules.rule(new ModelRule() {
             void addEmbeddedJsEngines(JsEngineRegistryInternal registry) {

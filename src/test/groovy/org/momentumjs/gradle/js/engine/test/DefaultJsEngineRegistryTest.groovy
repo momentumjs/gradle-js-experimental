@@ -1,9 +1,13 @@
-package org.momentumjs.gradle.jsengine;
+package org.momentumjs.gradle.js.engine.test
+
+import org.momentumjs.gradle.js.engine.JsEngine
+import org.momentumjs.gradle.js.engine.JsEngineDescriptor
+import org.momentumjs.gradle.js.engine.JsEngineFilter;
 
 import static org.junit.Assert.*
 
 import org.junit.Test
-import org.momentumjs.gradle.jsengine.internal.DefaultJsEngineRegistry
+import org.momentumjs.gradle.js.engine.internal.DefaultJsEngineRegistry
 
 public class DefaultJsEngineRegistryTest {
 

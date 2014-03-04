@@ -1,7 +1,7 @@
-package org.momentumjs.gradle.jsengine.plugins;
+package org.momentumjs.gradle.js.engine.plugins;
 
 import org.gradle.api.Incubating;
-import org.momentumjs.gradle.jsengine.JsEngineDescriptor;
+import org.momentumjs.gradle.js.engine.JsEngineDescriptor;
 
 @Incubating
 public class EmbeddedJsEngine extends AbstractJsEngine {

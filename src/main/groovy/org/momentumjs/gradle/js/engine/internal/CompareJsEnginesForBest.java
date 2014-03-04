@@ -1,7 +1,7 @@
-package org.momentumjs.gradle.jsengine.internal;
+package org.momentumjs.gradle.js.engine.internal;
 
 import org.gradle.api.Incubating;
-import org.momentumjs.gradle.jsengine.JsEngine;
+import org.momentumjs.gradle.js.engine.JsEngine;
 
 import java.util.Comparator;
 

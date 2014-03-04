@@ -13,7 +13,7 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package org.momentumjs.gradle.jsengine
+package org.momentumjs.gradle.js
 
 import org.gradle.api.Incubating
 import org.gradle.api.Plugin
@@ -21,19 +21,19 @@ import org.gradle.api.Project
 import org.gradle.internal.reflect.Instantiator
 import org.gradle.model.ModelFinalizer
 import org.gradle.model.ModelRules
-import org.momentumjs.gradle.jsengine.internal.DefaultJsEngineRegistry
-import org.momentumjs.gradle.jsengine.internal.JsEngineRegistryInternal
+import org.momentumjs.gradle.js.engine.internal.DefaultJsEngineRegistry
+import org.momentumjs.gradle.js.engine.internal.JsEngineRegistryInternal
 
 import javax.inject.Inject
 
 @Incubating
-class JsEnginePlugin implements Plugin<Project> {
+class JsBasePlugin implements Plugin<Project> {
 
     private final Instantiator instantiator
     private final ModelRules modelRules
 
     @Inject
-    JsEnginePlugin(Instantiator instantiator, ModelRules modelRules) {
+    JsBasePlugin(Instantiator instantiator, ModelRules modelRules) {
         this.instantiator = instantiator
         this.modelRules = modelRules
     }

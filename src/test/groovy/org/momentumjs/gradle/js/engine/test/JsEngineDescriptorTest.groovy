@@ -1,4 +1,6 @@
-package org.momentumjs.gradle.jsengine
+package org.momentumjs.gradle.js.engine.test
+
+import org.momentumjs.gradle.js.engine.JsEngineDescriptor
 
 import static org.junit.Assert.*
 

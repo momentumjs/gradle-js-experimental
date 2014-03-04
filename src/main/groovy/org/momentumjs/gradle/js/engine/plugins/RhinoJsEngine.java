@@ -1,8 +1,8 @@
-package org.momentumjs.gradle.jsengine.plugins;
+package org.momentumjs.gradle.js.engine.plugins;
 
 import org.gradle.api.Incubating;
 import org.gradle.plugins.javascript.rhino.RhinoExtension;
-import org.momentumjs.gradle.jsengine.JsEngineDescriptor;
+import org.momentumjs.gradle.js.engine.JsEngineDescriptor;
 
 /**
  * JsEngine providing gradle's existing Rhino plugin

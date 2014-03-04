@@ -1,6 +1,7 @@
-package org.momentumjs.gradle.jsengine;
+package org.momentumjs.gradle.js.engine.test;
 
-import org.momentumjs.gradle.jsengine.plugins.AbstractJsEngine;
+import org.momentumjs.gradle.js.engine.JsEngineDescriptor;
+import org.momentumjs.gradle.js.engine.plugins.AbstractJsEngine;
 
 
 public class DummyJsEngine extends AbstractJsEngine {

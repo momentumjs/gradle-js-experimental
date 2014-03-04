@@ -1,4 +1,7 @@
-package org.momentumjs.gradle.jsengine
+package org.momentumjs.gradle.js.engine.test
+
+import org.momentumjs.gradle.js.engine.JsEngine
+import org.momentumjs.gradle.js.engine.JsEngineRegistry
 
 import static org.junit.Assert.*
 
@@ -6,7 +9,7 @@ import org.gradle.api.internal.project.DefaultProject
 import org.gradle.testfixtures.ProjectBuilder
 import org.junit.Test
 
-class JsEnginePluginTest {
+class JsBasePluginEngineTest {
 
     private static JsEngineRegistry jsEngineRegistry(DefaultProject project) {
         return project.modelRegistry.get("jsEngines", JsEngineRegistry)
@@ -15,7 +18,7 @@ class JsEnginePluginTest {
     @Test
     public void jsEnginePluginAddsExtensionToProject() {
         DefaultProject project = (DefaultProject)ProjectBuilder.builder().build()
-        project.apply plugin: 'js-engine'
+        project.apply plugin: 'js-base'
 
         // no javascript engines are registered by the base plugin
         JsEngineRegistry registry = jsEngineRegistry(project)

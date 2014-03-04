@@ -1,11 +1,11 @@
-package org.momentumjs.gradle.jsengine.internal;
+package org.momentumjs.gradle.js.engine.internal;
 
 import org.gradle.api.Action;
 import org.gradle.api.Incubating;
 import org.gradle.api.internal.DefaultPolymorphicDomainObjectContainer;
 import org.gradle.internal.reflect.Instantiator;
-import org.momentumjs.gradle.jsengine.JsEngineFilter;
-import org.momentumjs.gradle.jsengine.JsEngine;
+import org.momentumjs.gradle.js.engine.JsEngine;
+import org.momentumjs.gradle.js.engine.JsEngineFilter;
 
 import java.util.ArrayList;
 import java.util.Collections;

@@ -1,8 +1,8 @@
-package org.momentumjs.gradle.jsengine.plugins;
+package org.momentumjs.gradle.js.engine.plugins;
 
 import org.gradle.api.Incubating;
-import org.momentumjs.gradle.jsengine.JsEngine;
-import org.momentumjs.gradle.jsengine.JsEngineDescriptor;
+import org.momentumjs.gradle.js.engine.JsEngine;
+import org.momentumjs.gradle.js.engine.JsEngineDescriptor;
 
 /**
  * Base class available for JsEngine implementations

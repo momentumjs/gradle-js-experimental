@@ -1,4 +1,4 @@
-package org.momentumjs.gradle.jsengine;
+package org.momentumjs.gradle.js.engine;
 
 import org.gradle.api.Incubating;
 import org.gradle.api.Named;
